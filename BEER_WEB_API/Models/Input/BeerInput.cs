@@ -33,12 +33,6 @@
             set { _vintage = value; }
         }
 
-        public string BeerStyle
-        {
-            get { return _beerStyle; }
-            set { _beerStyle = value.Trim(); }
-        }
-
         public decimal Price
         {
             get { return _price; }
@@ -57,6 +51,18 @@
             set { _bestBeforeDate = value.Trim(); }
         }
 
+        public decimal Quantity
+        {
+            get { return _quantity; }
+            set { _quantity = value; }
+        }
+
+        public string BeerStyle
+        {
+            get { return _beerStyle; }
+            set { _beerStyle = value.Trim(); }
+        }
+
         public decimal AlcoholContent
         {
             get { return _alcolholContent; }
@@ -67,12 +73,6 @@
         {
             get { return _bottleSize; }
             set { _bottleSize = value; }
-        }
-
-        public decimal Quantity
-        {
-            get { return _quantity; }
-            set { _quantity = value; }
         }
 
         public string Brewery

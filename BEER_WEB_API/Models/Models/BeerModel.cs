@@ -7,21 +7,19 @@
 
         }
 
-        public BeerModel(int id, string articleNumber, string beerName, decimal vintage, string beerStyle, decimal price, string purchased, string bestBeforeDate, decimal alcoholContent, decimal bottleSize, decimal quantity, BreweyModel breweries)
+        public BeerModel(int id, string articleNumber, string beerName, decimal vintage, decimal price, string purchased, string bestBeforeDate, decimal quantity, BeerDetailsModel beersDetails)
         {
             Id=id;
             ArticleNumber=articleNumber;
             BeerName=beerName;
             Vintage=vintage;
-            BeerStyle=beerStyle;
             Price=price;
             Purchased=purchased;
             BestBeforeDate=bestBeforeDate;
-            AlcoholContent=alcoholContent;
             Quantity=quantity;
-            Breweries=breweries;
-
+            BeersDetails=beersDetails;
         }
+
 
         public int Id { get; set; }
 
@@ -31,19 +29,15 @@
 
         public decimal Vintage { get; set; }
 
-        public string BeerStyle { get; set; }
-
         public decimal Price { get; set; }
 
         public string Purchased { get; set; }
 
         public string BestBeforeDate { get; set; }
 
-        public decimal AlcoholContent { get; set; }
-
         public decimal Quantity { get; set; }
 
-        public BreweyModel Breweries { get; set; }
+        public BeerDetailsModel BeersDetails { get; set; }
 
     }
 }

@@ -264,7 +264,6 @@ C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\BEER-WEB-API\BEER_WEB_API\
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\BEER-WEB-API\BEER_WEB_API\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\BEER-WEB-API\BEER_WEB_API\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\BEER-WEB-API\BEER_WEB_API\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll
-C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.csproj.AssemblyReference.cache
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.AssemblyInfoInputs.cache
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.AssemblyInfo.cs

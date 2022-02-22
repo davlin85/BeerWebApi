@@ -16,6 +16,7 @@ namespace BEER_WEB_API.Data
         }
 
         public virtual DbSet<BeerEntity> Beers { get; set; }
+        public virtual DbSet<BeerDetailsEntity> BeersDetails { get; set; }
         public virtual DbSet<BreweryEntity> Breweries { get; set; }
     }
 }

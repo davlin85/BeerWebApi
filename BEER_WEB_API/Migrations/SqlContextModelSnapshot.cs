@@ -21,7 +21,7 @@ namespace BEER_WEB_API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerEntity", b =>
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerDetailsEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -32,19 +32,7 @@ namespace BEER_WEB_API.Migrations
                     b.Property<decimal>("AlcoholContent")
                         .HasColumnType("decimal(4,1)");
 
-                    b.Property<string>("ArticleNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("BeerName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
                     b.Property<string>("BeerStyle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
-
-                    b.Property<string>("BestBeforeDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
@@ -53,6 +41,36 @@ namespace BEER_WEB_API.Migrations
 
                     b.Property<int>("BreweriesId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("BreweriesId");
+
+                    b.ToTable("BeersDetails");
+                });
+
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("ArticleNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("BeerName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("BeersDetailsId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("BestBeforeDate")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6,2)");
@@ -69,7 +87,7 @@ namespace BEER_WEB_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("BreweriesId");
+                    b.HasIndex("BeersDetailsId");
 
                     b.ToTable("Beers");
                 });
@@ -95,10 +113,10 @@ namespace BEER_WEB_API.Migrations
                     b.ToTable("Breweries");
                 });
 
-            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerEntity", b =>
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerDetailsEntity", b =>
                 {
                     b.HasOne("BEER_WEB_API.Models.Entities.BreweryEntity", "Breweries")
-                        .WithMany("Beers")
+                        .WithMany("BeersDetails")
                         .HasForeignKey("BreweriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -106,9 +124,25 @@ namespace BEER_WEB_API.Migrations
                     b.Navigation("Breweries");
                 });
 
-            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BreweryEntity", b =>
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerEntity", b =>
+                {
+                    b.HasOne("BEER_WEB_API.Models.Entities.BeerDetailsEntity", "BeersDetails")
+                        .WithMany("Beers")
+                        .HasForeignKey("BeersDetailsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BeersDetails");
+                });
+
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerDetailsEntity", b =>
                 {
                     b.Navigation("Beers");
+                });
+
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BreweryEntity", b =>
+                {
+                    b.Navigation("BeersDetails");
                 });
 #pragma warning restore 612, 618
         }

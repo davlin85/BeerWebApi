@@ -29,7 +29,8 @@ namespace BEER_WEB_API.Controllers
         {
             var beers = new List<BeerModel>();
             foreach (var beer in await _context.Beers
-                .Include(x => x.Breweries)
+                .Include(x => x.BeersDetails)
+                .ThenInclude(x => x.Breweries)
                 .ToListAsync())
 
                 beers.Add(new BeerModel(
@@ -37,16 +38,17 @@ namespace BEER_WEB_API.Controllers
                     beer.ArticleNumber,
                     beer.BeerName,
                     beer.Vintage,
-                    beer.BeerStyle,
                     beer.Price,
                     beer.Purchased,
                     beer.BestBeforeDate,
-                    beer.AlcoholContent,
-                    beer.BottleSize,
                     beer.Quantity,
-                        new BreweyModel(
-                            beer.Breweries.Brewery,
-                            beer.Breweries.Country)));
+                        new BeerDetailsModel(
+                            beer.BeersDetails.BeerStyle,
+                            beer.BeersDetails.AlcoholContent,
+                            beer.BeersDetails.BottleSize,
+                                new BreweyModel(
+                                    beer.BeersDetails.Breweries.Brewery,
+                                    beer.BeersDetails.Breweries.Country))));
 
             return beers;
         }
@@ -56,7 +58,8 @@ namespace BEER_WEB_API.Controllers
         public async Task<ActionResult<BeerModel>> GetBeer(int id)
         {
             var beerEntity = await _context.Beers
-                .Include(x => x.Breweries)
+                .Include(x => x.BeersDetails)
+                .ThenInclude(x => x.Breweries)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
             if(beerEntity == null)
@@ -69,16 +72,17 @@ namespace BEER_WEB_API.Controllers
                 beerEntity.ArticleNumber,
                 beerEntity.BeerName,
                 beerEntity.Vintage,
-                beerEntity.BeerStyle,
                 beerEntity.Price,
                 beerEntity.Purchased,
                 beerEntity.BestBeforeDate,
-                beerEntity.AlcoholContent,
-                beerEntity.BottleSize,
                 beerEntity.Quantity,
-                    new BreweyModel(
-                        beerEntity.Breweries.Brewery,
-                        beerEntity.Breweries.Country));
+                    new BeerDetailsModel(
+                        beerEntity.BeersDetails.BeerStyle,
+                        beerEntity.BeersDetails.AlcoholContent,
+                        beerEntity.BeersDetails.BottleSize,
+                            new BreweyModel(
+                                beerEntity.BeersDetails.Breweries.Brewery,
+                                beerEntity.BeersDetails.Breweries.Country)));
         }
 
         // PUT: api/Beer/5
@@ -97,22 +101,32 @@ namespace BEER_WEB_API.Controllers
             beerEntity.ArticleNumber = model.ArticleNumber;
             beerEntity.BeerName = model.BeerName;
             beerEntity.Vintage = model.Vintage;
-            beerEntity.BeerStyle = model.BeerStyle;
             beerEntity.Price = model.Price;
             beerEntity.Purchased = model.Purchased;
             beerEntity.BestBeforeDate = model.BestBeforeDate;
-            beerEntity.AlcoholContent = model.AlcoholContent;
-            beerEntity.BottleSize = model.BottleSize;
             beerEntity.Quantity = model.Quantity;
+
+            var beerDetails = await _context.BeersDetails
+                .FirstOrDefaultAsync(x => x.BeerStyle == model.BeerStyle
+                && x.AlcoholContent == model.AlcoholContent
+                && x.BottleSize == model.BottleSize);
+
+            if (beerDetails != null)
+                beerEntity.BeersDetailsId = beerDetails.Id;
+            else
+                beerEntity.BeersDetails = new BeerDetailsEntity(
+                    model.BeerStyle,
+                    model.AlcoholContent,
+                    model.BottleSize);
 
             var breweries = await _context.Breweries
                 .FirstOrDefaultAsync(x => x.Brewery == model.Brewery
                 && x.Country == model.Country);
 
             if (breweries != null)
-                beerEntity.BreweriesId = breweries.Id;
+                beerEntity.BeersDetails.BreweriesId = breweries.Id;
             else
-                beerEntity.Breweries = new BreweryEntity(
+                beerEntity.BeersDetails.Breweries = new BreweryEntity(
                     model.Brewery,
                     model.Country);
 
@@ -146,22 +160,32 @@ namespace BEER_WEB_API.Controllers
                 model.ArticleNumber,
                 model.BeerName,
                 model.Vintage,
-                model.BeerStyle,
                 model.Price,
                 model.Purchased,
                 model.BestBeforeDate,
-                model.AlcoholContent,
-                model.BottleSize,
                 model.Quantity);
+
+            var beerDetails = await _context.BeersDetails
+                .FirstOrDefaultAsync(x => x.BeerStyle == model.BeerStyle
+                && x.AlcoholContent == model.AlcoholContent
+                && x.BottleSize == model.BottleSize);
+
+            if (beerDetails != null)
+                beerEntity.BeersDetailsId = beerDetails.Id;
+            else
+                beerEntity.BeersDetails = new BeerDetailsEntity(
+                    model.BeerStyle,
+                    model.AlcoholContent,
+                    model.BottleSize);
 
             var breweries = await _context.Breweries
                 .FirstOrDefaultAsync(x => x.Brewery == model.Brewery
                 && x.Country == model.Country);
 
             if (breweries != null)
-                beerEntity.BreweriesId = breweries.Id;
+                beerEntity.BeersDetails.BreweriesId = breweries.Id;
             else
-                beerEntity.Breweries = new BreweryEntity(
+                beerEntity.BeersDetails.Breweries = new BreweryEntity(
                     model.Brewery,
                     model.Country);
 
@@ -174,16 +198,17 @@ namespace BEER_WEB_API.Controllers
                     beerEntity.ArticleNumber,
                     beerEntity.BeerName,
                     beerEntity.Vintage,
-                    beerEntity.BeerStyle,
                     beerEntity.Price,
                     beerEntity.Purchased,
                     beerEntity.BestBeforeDate,
-                    beerEntity.AlcoholContent,
-                    beerEntity.BottleSize,
                     beerEntity.Quantity,
-                        new BreweyModel(
-                            beerEntity.Breweries.Brewery,
-                            beerEntity.Breweries.Country)));
+                        new BeerDetailsModel(
+                            beerEntity.BeersDetails.BeerStyle,
+                            beerEntity.BeersDetails.AlcoholContent,
+                            beerEntity.BeersDetails.BottleSize,
+                                new BreweyModel(
+                                    beerEntity.BeersDetails.Breweries.Brewery,
+                                    beerEntity.BeersDetails.Breweries.Country))));
 
         }
 

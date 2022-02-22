@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using BEER_WEB_API.Models.Models;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -11,17 +12,14 @@ namespace BEER_WEB_API.Models.Entities
 
         }
 
-        public BeerEntity(string articleNumber, string beerName, decimal vintage, string beerStyle, decimal price, string purchased, string bestBeforeDate, decimal alcoholContent, decimal bottleSize, decimal quantity)
+        public BeerEntity(string articleNumber, string beerName, decimal vintage, decimal price, string purchased, string bestBeforeDate, decimal quantity)
         {
             ArticleNumber=articleNumber;
             BeerName=beerName;
             Vintage=vintage;
-            BeerStyle=beerStyle;
             Price=price;
             Purchased=purchased;
             BestBeforeDate=bestBeforeDate;
-            AlcoholContent=alcoholContent;
-            BottleSize=bottleSize;
             Quantity=quantity;
         }
 
@@ -37,9 +35,6 @@ namespace BEER_WEB_API.Models.Entities
         [Required, Column(TypeName = "decimal(4,0)")]
         public decimal Vintage { get; set; }
 
-        [Required, Column(TypeName = "nvarchar(50)")]
-        public string BeerStyle { get; set; }
-
         [Required, Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
 
@@ -49,19 +44,13 @@ namespace BEER_WEB_API.Models.Entities
         [Required, Column(TypeName = "nvarchar(50)")]
         public string BestBeforeDate { get; set; }
 
-        [Required, Column(TypeName = "decimal(4,1)")]
-        public decimal AlcoholContent { get; set; }
-
-        [Required, Column(TypeName = "decimal(3,0)")]
-        public decimal BottleSize { get; set; }
-
         [Required, Column(TypeName = "decimal(3,0)")]
         public decimal Quantity { get; set; }
 
 
         [Required]
-        public int BreweriesId { get; set; }
-        public virtual BreweryEntity Breweries { get; set; }
+        public int BeersDetailsId { get; set; }
+        public virtual BeerDetailsEntity BeersDetails { get; set; }
 
     }
 
