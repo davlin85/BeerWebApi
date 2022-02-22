@@ -11,10 +11,9 @@ namespace BEER_WEB_API.Models.Entities
             Beers = new HashSet<BeerEntity>();
         }
 
-        public BreweryEntity(string brewery, string beerStyle, string country)
+        public BreweryEntity(string brewery, string country)
         {
             Brewery=brewery;
-            BeerStyle=beerStyle;
             Country=country;
         }
 
@@ -23,9 +22,6 @@ namespace BEER_WEB_API.Models.Entities
 
         [Required, Column(TypeName = "nvarchar(50)")]
         public string Brewery { get; set; }
-
-        [Required, Column(TypeName = "nvarchar(50)")]
-        public string BeerStyle { get; set; }
 
         [Required, Column(TypeName = "nvarchar(50)")]
         public string Country { get; set; }

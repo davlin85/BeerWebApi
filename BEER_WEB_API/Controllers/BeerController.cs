@@ -37,6 +37,7 @@ namespace BEER_WEB_API.Controllers
                     beer.ArticleNumber,
                     beer.BeerName,
                     beer.Vintage,
+                    beer.BeerStyle,
                     beer.Price,
                     beer.Purchased,
                     beer.BestBeforeDate,
@@ -45,7 +46,6 @@ namespace BEER_WEB_API.Controllers
                     beer.Quantity,
                         new BreweyModel(
                             beer.Breweries.Brewery,
-                            beer.Breweries.BeerStyle,
                             beer.Breweries.Country)));
 
             return beers;
@@ -69,6 +69,7 @@ namespace BEER_WEB_API.Controllers
                 beerEntity.ArticleNumber,
                 beerEntity.BeerName,
                 beerEntity.Vintage,
+                beerEntity.BeerStyle,
                 beerEntity.Price,
                 beerEntity.Purchased,
                 beerEntity.BestBeforeDate,
@@ -77,7 +78,6 @@ namespace BEER_WEB_API.Controllers
                 beerEntity.Quantity,
                     new BreweyModel(
                         beerEntity.Breweries.Brewery,
-                        beerEntity.Breweries.BeerStyle,
                         beerEntity.Breweries.Country));
         }
 
@@ -97,6 +97,7 @@ namespace BEER_WEB_API.Controllers
             beerEntity.ArticleNumber = model.ArticleNumber;
             beerEntity.BeerName = model.BeerName;
             beerEntity.Vintage = model.Vintage;
+            beerEntity.BeerStyle = model.BeerStyle;
             beerEntity.Price = model.Price;
             beerEntity.Purchased = model.Purchased;
             beerEntity.BestBeforeDate = model.BestBeforeDate;
@@ -106,7 +107,6 @@ namespace BEER_WEB_API.Controllers
 
             var breweries = await _context.Breweries
                 .FirstOrDefaultAsync(x => x.Brewery == model.Brewery
-                && x.BeerStyle == model.BeerStyle
                 && x.Country == model.Country);
 
             if (breweries != null)
@@ -114,7 +114,6 @@ namespace BEER_WEB_API.Controllers
             else
                 beerEntity.Breweries = new BreweryEntity(
                     model.Brewery,
-                    model.BeerStyle,
                     model.Country);
 
             _context.Entry(beerEntity).State = EntityState.Modified;
@@ -147,6 +146,7 @@ namespace BEER_WEB_API.Controllers
                 model.ArticleNumber,
                 model.BeerName,
                 model.Vintage,
+                model.BeerStyle,
                 model.Price,
                 model.Purchased,
                 model.BestBeforeDate,
@@ -156,7 +156,6 @@ namespace BEER_WEB_API.Controllers
 
             var breweries = await _context.Breweries
                 .FirstOrDefaultAsync(x => x.Brewery == model.Brewery
-                && x.BeerStyle == model.BeerStyle
                 && x.Country == model.Country);
 
             if (breweries != null)
@@ -164,7 +163,6 @@ namespace BEER_WEB_API.Controllers
             else
                 beerEntity.Breweries = new BreweryEntity(
                     model.Brewery,
-                    model.BeerStyle,
                     model.Country);
 
             _context.Beers.Add(beerEntity);
@@ -176,6 +174,7 @@ namespace BEER_WEB_API.Controllers
                     beerEntity.ArticleNumber,
                     beerEntity.BeerName,
                     beerEntity.Vintage,
+                    beerEntity.BeerStyle,
                     beerEntity.Price,
                     beerEntity.Purchased,
                     beerEntity.BestBeforeDate,
@@ -184,7 +183,6 @@ namespace BEER_WEB_API.Controllers
                     beerEntity.Quantity,
                         new BreweyModel(
                             beerEntity.Breweries.Brewery,
-                            beerEntity.Breweries.BeerStyle,
                             beerEntity.Breweries.Country)));
 
         }

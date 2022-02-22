@@ -7,16 +7,13 @@
 
         }
 
-        public BreweyModel(string brewery, string beerStyle, string country)
+        public BreweyModel(string brewery, string country)
         {
             Brewery=brewery;
-            BeerStyle=beerStyle;
             Country=country;
         }
 
         public string Brewery { get; set; }
-
-        public string BeerStyle { get; set; }
 
         public string Country { get; set; }
 

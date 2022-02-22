@@ -40,6 +40,10 @@ namespace BEER_WEB_API.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
 
+                    b.Property<string>("BeerStyle")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(50)");
+
                     b.Property<string>("BestBeforeDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
@@ -77,10 +81,6 @@ namespace BEER_WEB_API.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("BeerStyle")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("Brewery")
                         .IsRequired()
