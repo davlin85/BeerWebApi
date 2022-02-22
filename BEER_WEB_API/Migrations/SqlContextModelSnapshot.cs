@@ -47,11 +47,11 @@ namespace BEER_WEB_API.Migrations
                     b.Property<decimal>("BottleSize")
                         .HasColumnType("decimal(3,0)");
 
+                    b.Property<int>("BreweriesId")
+                        .HasColumnType("int");
+
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6,2)");
-
-                    b.Property<int>("ProductsId")
-                        .HasColumnType("int");
 
                     b.Property<string>("Purchased")
                         .IsRequired()
@@ -65,12 +65,12 @@ namespace BEER_WEB_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ProductsId");
+                    b.HasIndex("BreweriesId");
 
                     b.ToTable("Beers");
                 });
 
-            modelBuilder.Entity("BEER_WEB_API.Models.Entities.ProductEntity", b =>
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BreweryEntity", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -92,21 +92,21 @@ namespace BEER_WEB_API.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Products");
+                    b.ToTable("Breweries");
                 });
 
             modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerEntity", b =>
                 {
-                    b.HasOne("BEER_WEB_API.Models.Entities.ProductEntity", "Products")
+                    b.HasOne("BEER_WEB_API.Models.Entities.BreweryEntity", "Breweries")
                         .WithMany("Beers")
-                        .HasForeignKey("ProductsId")
+                        .HasForeignKey("BreweriesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Products");
+                    b.Navigation("Breweries");
                 });
 
-            modelBuilder.Entity("BEER_WEB_API.Models.Entities.ProductEntity", b =>
+            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BreweryEntity", b =>
                 {
                     b.Navigation("Beers");
                 });

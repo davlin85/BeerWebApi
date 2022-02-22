@@ -56,8 +56,8 @@ namespace BEER_WEB_API.Models.Entities
 
 
         [Required]
-        public int ProductsId { get; set; }
-        public virtual ProductEntity Products { get; set; }
+        public int BreweriesId { get; set; }
+        public virtual BreweryEntity Breweries { get; set; }
 
     }
 
