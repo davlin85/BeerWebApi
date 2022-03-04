@@ -17,6 +17,10 @@ namespace BEER_WEB_API.Models.Entities
             BottleSize=bottleSize;
         }
 
+        public BeerDetailsEntity(string beerStyle, decimal alcoholContent, decimal bottleSize, BreweryEntity breweryEntity) : this(beerStyle, alcoholContent, bottleSize)
+        {
+        }
+
         [Key]
         public int Id { get; set; }
 

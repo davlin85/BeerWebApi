@@ -529,3 +529,4 @@ C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_W
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\scopedcss\bundle\BEER_WEB_API.styles.css
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.csproj.CopyComplete
 C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.genruntimeconfig.cache
+C:\Users\david\OneDrive\Dokument\Webbutvecklare\WIN21\GITHUB\BEER-WEB-API\BEER_WEB_API\obj\Debug\net6.0\BEER_WEB_API.csproj.AssemblyReference.cache

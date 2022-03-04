@@ -1,0 +1,14 @@
+﻿{
+  "articleNumber": "11774-01",
+  "beerName": "Oude Geuze Black Label nr 6",
+  "vintage": 2022,
+  "price": 99,
+  "purchased": "2022-02",
+  "bestBeforeDate": "2040-08-26",
+  "quantity": 1,
+  "beerStyle": "Gueuze",
+  "alcoholContent": 7.0,
+  "bottleSize": 750,
+  "brewery": "Brouwerij Boon",
+  "country": "Belgien"
+}
