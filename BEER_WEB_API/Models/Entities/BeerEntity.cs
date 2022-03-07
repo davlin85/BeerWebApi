@@ -12,11 +12,12 @@ namespace BEER_WEB_API.Models.Entities
 
         }
 
-        public BeerEntity(string articleNumber, string beerName, decimal vintage, decimal price, string purchased, string bestBeforeDate, decimal quantity)
+        public BeerEntity(string articleNumber, string beerName, decimal vintage, decimal alcoholContent, decimal price, string purchased, string bestBeforeDate, decimal quantity)
         {
             ArticleNumber=articleNumber;
             BeerName=beerName;
             Vintage=vintage;
+            AlcoholContent=alcoholContent;
             Price=price;
             Purchased=purchased;
             BestBeforeDate=bestBeforeDate;
@@ -35,6 +36,9 @@ namespace BEER_WEB_API.Models.Entities
         [Required, Column(TypeName = "decimal(4,0)")]
         public decimal Vintage { get; set; }
 
+        [Required, Column(TypeName = "decimal(4,1)")]
+        public decimal AlcoholContent { get; set; }
+
         [Required, Column(TypeName = "decimal(6,2)")]
         public decimal Price { get; set; }
 
@@ -51,6 +55,11 @@ namespace BEER_WEB_API.Models.Entities
         [Required]
         public int BeersDetailsId { get; set; }
         public virtual BeerDetailsEntity BeersDetails { get; set; }
+
+
+        [Required]
+        public int BreweriesId { get; set; }
+        public virtual BreweryEntity Breweries { get; set; }
 
     }
 

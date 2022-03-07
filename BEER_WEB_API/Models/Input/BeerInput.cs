@@ -33,6 +33,12 @@
             set { _vintage = value; }
         }
 
+        public decimal AlcoholContent
+        {
+            get { return _alcolholContent; }
+            set { _alcolholContent = value; }
+        }
+
         public decimal Price
         {
             get { return _price; }
@@ -61,12 +67,6 @@
         {
             get { return _beerStyle; }
             set { _beerStyle = value.Trim(); }
-        }
-
-        public decimal AlcoholContent
-        {
-            get { return _alcolholContent; }
-            set { _alcolholContent = value; }
         }
 
         public decimal BottleSize

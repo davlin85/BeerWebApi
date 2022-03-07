@@ -29,9 +29,6 @@ namespace BEER_WEB_API.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<decimal>("AlcoholContent")
-                        .HasColumnType("decimal(4,1)");
-
                     b.Property<string>("BeerStyle")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
@@ -39,12 +36,7 @@ namespace BEER_WEB_API.Migrations
                     b.Property<decimal>("BottleSize")
                         .HasColumnType("decimal(3,0)");
 
-                    b.Property<int>("BreweriesId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("BreweriesId");
 
                     b.ToTable("BeersDetails");
                 });
@@ -56,6 +48,9 @@ namespace BEER_WEB_API.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<decimal>("AlcoholContent")
+                        .HasColumnType("decimal(4,1)");
 
                     b.Property<string>("ArticleNumber")
                         .IsRequired()
@@ -71,6 +66,9 @@ namespace BEER_WEB_API.Migrations
                     b.Property<string>("BestBeforeDate")
                         .IsRequired()
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<int>("BreweriesId")
+                        .HasColumnType("int");
 
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6,2)");
@@ -88,6 +86,8 @@ namespace BEER_WEB_API.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("BeersDetailsId");
+
+                    b.HasIndex("BreweriesId");
 
                     b.ToTable("Beers");
                 });
@@ -113,17 +113,6 @@ namespace BEER_WEB_API.Migrations
                     b.ToTable("Breweries");
                 });
 
-            modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerDetailsEntity", b =>
-                {
-                    b.HasOne("BEER_WEB_API.Models.Entities.BreweryEntity", "Breweries")
-                        .WithMany("BeersDetails")
-                        .HasForeignKey("BreweriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Breweries");
-                });
-
             modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerEntity", b =>
                 {
                     b.HasOne("BEER_WEB_API.Models.Entities.BeerDetailsEntity", "BeersDetails")
@@ -132,7 +121,15 @@ namespace BEER_WEB_API.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("BEER_WEB_API.Models.Entities.BreweryEntity", "Breweries")
+                        .WithMany("Beers")
+                        .HasForeignKey("BreweriesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.Navigation("BeersDetails");
+
+                    b.Navigation("Breweries");
                 });
 
             modelBuilder.Entity("BEER_WEB_API.Models.Entities.BeerDetailsEntity", b =>
@@ -142,7 +139,7 @@ namespace BEER_WEB_API.Migrations
 
             modelBuilder.Entity("BEER_WEB_API.Models.Entities.BreweryEntity", b =>
                 {
-                    b.Navigation("BeersDetails");
+                    b.Navigation("Beers");
                 });
 #pragma warning restore 612, 618
         }

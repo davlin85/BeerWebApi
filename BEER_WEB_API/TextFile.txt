@@ -3,12 +3,117 @@
   "beerName": "Oude Geuze Black Label nr 6",
   "vintage": 2022,
   "price": 99,
-  "purchased": "2022-02",
+  "purchased": "2022-03",
   "bestBeforeDate": "2040-08-26",
   "quantity": 1,
   "beerStyle": "Gueuze",
-  "alcoholContent": 7.0,
+  "alcoholContent": 7,
   "bottleSize": 750,
+  "brewery": "Brouwerij Boon",
+  "country": "Belgien"
+}
+
+{
+  "articleNumber": "11136-02",
+  "beerName": "Fuller´s Vintage Ale",
+  "vintage": 2021,
+  "alcoholContent": 8.5,
+  "price": 74.9,
+  "purchased": "2021-12",
+  "bestBeforeDate": "2031-12-31",
+  "quantity": 1,
+  "beerStyle": "Strong Ale",
+  "bottleSize": 500,
+  "brewery": "The Fuller´s Beer Company",
+  "country": "Storbritannien"
+}
+
+{
+  "articleNumber": "88377-03",
+  "beerName": "Oude Kriek Vieille",
+  "vintage": 2021,
+  "price": 59,
+  "purchased": "2022-01",
+  "bestBeforeDate": "2039-10-31",
+  "quantity": 1,
+  "beerStyle": "Lambic",
+  "alcoholContent": 6.5,
+  "bottleSize": 375,
+  "brewery": "Brouwerij Oud Beersel",
+  "country": "Belgien"
+}
+
+{
+  "articleNumber": "11091-03",
+  "beerName": "Oude Gueuze",
+  "vintage": 2021,
+  "price": 73.5,
+  "purchased": "2022-02",
+  "bestBeforeDate": "2030-12-07",
+  "quantity": 1,
+  "beerStyle": "Gueuze",
+  "alcoholContent": 7,
+  "bottleSize": 375,
+  "brewery": "Gueuzerie Tilquin SA",
+  "country": "Belgien"
+}
+
+{
+  "articleNumber": "1673-03",
+  "beerName": "Oude Kriek Boon",
+  "vintage": 2018,
+  "price": 59.9,
+  "purchased": "2022-03",
+  "bestBeforeDate": "2040-01-31",
+  "quantity": 1,
+  "beerStyle": "Lambic",
+  "alcoholContent": 6.5,
+  "bottleSize": 375,
+  "brewery": "Brouwerij Boon",
+  "country": "Belgien"
+}
+
+{
+  "articleNumber": "1602-01",
+  "beerName": "Oude Geuze",
+  "vintage": 2020,
+  "price": 124,
+  "purchased": "2022-03",
+  "bestBeforeDate": "2040-10-26",
+  "quantity": 1,
+  "beerStyle": "Gueuze",
+  "alcoholContent": 6,
+  "bottleSize": 750,
+  "brewery": "3 Fonteinen",
+  "country": "Belgien"
+}
+
+{
+  "articleNumber": "1622-03",
+  "beerName": "Oude Geuze",
+  "vintage": 2019,
+  "price": 69.9,
+  "purchased": "2022-03",
+  "bestBeforeDate": "2039-10-26",
+  "quantity": 1,
+  "beerStyle": "Gueuze",
+  "alcoholContent": 6,
+  "bottleSize": 375,
+  "brewery": "3 Fonteinen",
+  "country": "Belgien"
+}
+
+{
+  "articleNumber": "88666-03",
+  "beerName": "Mariage Parfait",
+  "vintage": 2017,
+  "price": 59.9,
+  "purchased": "2022-03",
+  "bestBeforeDate": "2041-01-14",
+  "quantity": 1,
+  "beerStyle": "Gueuze",
+  "alcoholContent": 8,
+  "bottleSize": 375,
   "brewery": "Brouwerij Boon",
   "country": "Belgien"
 }

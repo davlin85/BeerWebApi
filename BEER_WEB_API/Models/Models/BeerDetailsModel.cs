@@ -7,18 +7,14 @@
 
         }
 
-
-        public BeerDetailsModel(string beerStyle, decimal alcoholContent, decimal bottleSize, BreweyModel breweries)
+        public BeerDetailsModel(string beerStyle, decimal bottleSize, BreweyModel breweries)
         {
             BeerStyle=beerStyle;
-            AlcoholContent=alcoholContent;
             BottleSize=bottleSize;
             Breweries=breweries;
         }
 
         public string BeerStyle { get; set; }
-
-        public decimal AlcoholContent { get; set; }
 
         public decimal BottleSize { get; set; }
 

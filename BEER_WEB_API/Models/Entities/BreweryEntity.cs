@@ -7,7 +7,7 @@ namespace BEER_WEB_API.Models.Entities
     {
         public BreweryEntity()
         {
-            BeersDetails = new HashSet<BeerDetailsEntity>();
+            Beers = new HashSet<BeerEntity>();
         }
 
         public BreweryEntity(string brewery, string country)
@@ -26,7 +26,7 @@ namespace BEER_WEB_API.Models.Entities
         public string Country { get; set; }
 
 
-        public virtual ICollection<BeerDetailsEntity> BeersDetails { get; set; }
+        public virtual ICollection<BeerEntity> Beers { get; set; }
 
     }
 

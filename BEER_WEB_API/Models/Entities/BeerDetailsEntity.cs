@@ -10,15 +10,10 @@ namespace BEER_WEB_API.Models.Entities
             Beers = new HashSet<BeerEntity>();
         }
 
-        public BeerDetailsEntity(string beerStyle, decimal alcoholContent, decimal bottleSize)
+        public BeerDetailsEntity(string beerStyle, decimal bottleSize)
         {
             BeerStyle=beerStyle;
-            AlcoholContent=alcoholContent;
             BottleSize=bottleSize;
-        }
-
-        public BeerDetailsEntity(string beerStyle, decimal alcoholContent, decimal bottleSize, BreweryEntity breweryEntity) : this(beerStyle, alcoholContent, bottleSize)
-        {
         }
 
         [Key]
@@ -27,16 +22,8 @@ namespace BEER_WEB_API.Models.Entities
         [Required, Column(TypeName = "nvarchar(50)")]
         public string BeerStyle { get; set; }
 
-        [Required, Column(TypeName = "decimal(4,1)")]
-        public decimal AlcoholContent { get; set; }
-
         [Required, Column(TypeName = "decimal(3,0)")]
         public decimal BottleSize { get; set; }
-
-
-        [Required]
-        public int BreweriesId { get; set; }
-        public virtual BreweryEntity Breweries { get; set; }
 
 
         public virtual ICollection<BeerEntity> Beers { get; set; }

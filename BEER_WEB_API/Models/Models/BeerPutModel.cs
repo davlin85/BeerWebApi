@@ -15,6 +15,8 @@
 
         public decimal Vintage { get; set; }
 
+        public decimal AlcoholContent { get; set; }
+
         public decimal Price { get; set; }
 
         public string Purchased { get; set; }
@@ -24,8 +26,6 @@
         public decimal Quantity { get; set; }
 
         public string BeerStyle { get; set; }
-
-        public decimal AlcoholContent { get; set; }
 
         public decimal BottleSize { get; set; }
 
