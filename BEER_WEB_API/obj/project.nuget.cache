@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "LRtxmYLv8EFr7HU/WlpQJR7pZIg0e5aUkSVq1jE2cu3IM9aHr6gRlAU/Bj/DZYBsW81k3Ycb7S5Ty/6w4LwHiw==",
+  "dgSpecHash": "hNHNyKVFq2r9mt9AWVxJX/CcW3TP4Ro3idIRa4Pyt0oyat3uqAUkZyClJtZddyX/m6PE+oo6vpCKdVdRClJRCA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\david\\OneDrive\\Dokument\\Webbutvecklare\\WIN21\\GITHUB\\BEER-WEB-API\\BEER_WEB_API\\BEER_WEB_API.csproj",
+  "projectFilePath": "C:\\Users\\david\\OneDrive\\Dokument\\Webbutvecklare\\WIN21\\GITHUB\\BeerWebApi\\BEER_WEB_API\\BEER_WEB_API.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
